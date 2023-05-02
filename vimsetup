@@ -1,0 +1,32 @@
+set tabstop=4 shiftwidth=4 textwidth=79
+set autoindent
+set smartindent
+set cindent
+syntax enable
+" colorcolumn "
+set colorcolumn=80
+" comments "
+highlight Comment ctermfg=cyan ctermbg=none
+set formatoptions+=ro
+set comments+=s:/**,mb:*,ex:*/,://
+" line numbers "
+set number
+"enable mouse "
+set mouse=a
+" search "
+set hlsearch
+set ignorecase
+set smartcase
+" remove trailing whitespace "
+autocmd FileType c,cpp,java,python setlocal nojoinspaces
+" Remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+" auto complete matching"
+autocmd FileType c,cpp,java,python  inoremap ( )<Left>(
+autocmd FileType c,cpp,java,python inoremap [ ]<Left>[
+autocmd FileType c,cpp,java,python inoremap " "<Left>"
+autocmd FileType c,cpp,java,python inoremap ' '<Left>'
+autocmd FileType c,cpp,java,python inoremap < ><Left><
+autocmd FileType c,cpp,java,python inoremap { {<CR>}<Esc>O
+"default start in insert mode "
+autocmd BufNewFile,BufRead * startinsert
